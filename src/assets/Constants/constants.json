@@ -1,0 +1,7 @@
+{
+    "BASE_URL": "https://api.gastronaut.ai/codeTest",
+    "RESERVATION_URL": "https://r.gastronaut.ai/",
+    "TICKET_URL": " https://t.gastronaut.ai",
+    "MENU_URL": "https://menu.gastronaut.ai",
+    "VOUCHER_URL": " https://v.gastronaut.ai"
+}

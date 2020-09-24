@@ -5,10 +5,10 @@ import {
 } from './css';
 
 
-function SingleButton({ buttonName }) {
+function SingleButton({ buttonName, clicked, url }) {
     return (
         <SingleButtonContainer>
-            <Button color='primary' variant='contained' fullWidth>{buttonName}</Button>
+            <Button color='primary' variant='contained' fullWidth onClick={() => clicked(url)}>{buttonName}</Button>
         </SingleButtonContainer>
     );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import GLogo from '../../../assets/poweredByGastronaut.png';
+import GLogo from '../../../assets/Images/poweredByGastronaut.png';
 import { CustomLogo } from './css';
 
 function GastronautLogo() {

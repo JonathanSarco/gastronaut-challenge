@@ -4,17 +4,18 @@ import {
     MainContainer
 } from './css';
 
-function Events(props) {
+function Events({ restaurant, restaurantId }) {
 
     let regularHours = <></>;
-    if (props.restaurant.regularHours) {
-        let hours = props.restaurant.regularHours;
+    if (restaurant.regularHours) {
+        let hours = restaurant.regularHours;
         
         regularHours = hours.map( (event,_i) => (
             <SingleEvent 
                 key={_i}
                 index={_i}
                 hour={event}
+                restaurantId={restaurantId}
             />
         ));
 

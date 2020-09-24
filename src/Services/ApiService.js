@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const BASE_URL = 'https://api.gastronaut.ai/codeTest';
+import { BASE_URL } from '../assets/Constants/constants.json';
 
 const instance = axios.create({
     baseURL: BASE_URL

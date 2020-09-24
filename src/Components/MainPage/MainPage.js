@@ -6,13 +6,13 @@ import {
     MainContainer
 } from './css';
 
-function MainPage(props) {
+function MainPage({ restaurant, restaurantId}) {
     
     return (
         <MainContainer>
-            <Image image={props.restaurant.image} name={props.restaurant.name}/>
-            <Events restaurant={props.restaurant}/>
-            <ButtonContainer />
+            <Image image={restaurant.image} name={restaurant.name}/>
+            <Events restaurant={restaurant} restaurantId={restaurantId}/>
+            <ButtonContainer restaurantId={restaurantId}/>
         </MainContainer>
         )
 };

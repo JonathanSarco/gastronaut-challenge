@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
-
+import { RESERVATION_URL } from '../../../assets/Constants/constants.json';
 import {
   EventContainer,
   Label,
@@ -9,20 +9,12 @@ import {
 } from './css';
 
 
-function SingleEvent({ index, hour }) {
+function SingleEvent({ index, hour, restaurantId }) {
   const { t } = useTranslation();
 
   const days = t('date', { returnObjects: true });
   
   const currentDate = () => {
-    if (index === 0) {
-      return days.today;
-    }
-
-    if (index === 1) {
-      return days.tomorrow;
-    }
-
     let newDate = new Date();
     newDate.setDate(newDate.getDate() + index);
 
@@ -31,7 +23,29 @@ function SingleEvent({ index, hour }) {
     let month = newDate.getMonth();
     let year = newDate.getFullYear().toString().substr(-2);
 
-    return `${day} the ${date}.${month < 10 ? `0${month}` : `${month}`}.${year}`
+    if (index === 0) {
+      return {
+        formatedHour: days.today,
+        queryHour: `${newDate.getFullYear()}-${month < 10 ? `0${month}`: `${month}`}-${newDate.getDate()}` 
+      }
+    }
+
+    if (index === 1) {
+      return {
+        formatedHour: days.tomorrow,
+        queryHour: `${newDate.getFullYear()}-${month < 10 ? `0${month}`: `${month}`}-${newDate.getDate()}` 
+      }
+    }
+
+    return {
+      formatedHour: `${day} the ${date}.${month < 10 ? `0${month}` : `${month}`}.${year}`,
+      queryHour: `${newDate.getFullYear()}-${month < 10 ? `0${month}`: `${month}`}-${newDate.getDate()}` 
+    }
+  }
+
+  const onSelectTableHandler = (hour) => {
+    const url = `${RESERVATION_URL}/${restaurantId}?date=${hour}`;
+    window.open(url, "_blank");
   }
 
   return (
@@ -39,10 +53,15 @@ function SingleEvent({ index, hour }) {
       { index === null 
         ? <Label>...</Label>
         : <>
-            <Label>{currentDate()}</Label>
+            <Label>{currentDate().formatedHour}</Label>
             <Label>{hour ? hour : t('closed')}</Label>
             <SingleButtonContainer>
-                <Button variant='outlined' color='primary' disabled={!hour}>{t('reservationButtonSmall')}</Button>
+                <Button 
+                  variant={'outlined' }
+                  color='primary' 
+                  disabled={!hour}
+                  onClick={() => onSelectTableHandler(currentDate().queryHour)}
+                  >{t('reservationButtonSmall')}</Button>
             </SingleButtonContainer>
           </>
       }
