@@ -1,0 +1,23 @@
+{
+    "closed": "Geschlossen",
+    "date": {
+        "weekdays": [
+            "So. der",
+            "Mo. der",
+            "Di. der",
+            "Mi. der",
+            "Do. der",
+            "Fr. der",
+            "Sa. der"
+        ],
+        "today": "Heute",
+        "tomorrow": "Morgen"
+    },
+    "deliveryButton": "Essen bestellen",
+    "menuButton": "Menü anzeigen",
+    "reservationButton": "Tisch Reservieren",
+    "reservationButtonSmall": "Reservieren",
+    "restaurantNotFound": "Restaurant konnte nicht gefunden werden.",
+    "ticketButton": "Ticket kaufen",
+    "voucherButton": "Gutschein kaufen"
+}

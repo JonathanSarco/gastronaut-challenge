@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Toolbar = styled.header`
+export const CustomToolbar = styled.header`
     height: 50px;
     width: 100%;
     position: fixed;

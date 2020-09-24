@@ -1,13 +1,17 @@
 import React from 'react';
-import Logo from '../Logo/Logo';
 import Toggle from '../Toggle/Toggle';
-import { Toolbar } from './css';
+import RLogo from '../RLogo/RLogo';
+import { 
+    CustomToolbar 
+} from './css';
 
-const toolbar = (props) => (
-    <Toolbar >
-        <Logo/>
+function Toolbar(props) {
+    return (
+    <CustomToolbar >
+        <RLogo link={props.restaurant.link} logo={props.restaurant.logo}/>
         <Toggle />
-    </Toolbar>
-);
+    </CustomToolbar>
+    );
+}
 
-export default toolbar;
+export default Toolbar;

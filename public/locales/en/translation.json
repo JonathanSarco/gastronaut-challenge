@@ -1,0 +1,23 @@
+{
+    "closed": "Closed",
+    "date": {
+        "today": "Today",
+        "weekdays": [
+            "Sun. the",
+            "Mon. the",
+            "Tue. the",
+            "Wed. the",
+            "Thu. the",
+            "Fri. the",
+            "Sat. the"
+        ],
+        "tomorrow": "Tomorrow"
+    },
+    "deliveryButton": "Order",
+    "menuButton": "Show Menu",
+    "reservationButton": "Book a table",
+    "reservationButtonSmall": "Book a table",
+    "restaurantNotFound": "We couldn't find the Restaurant you were looking for",
+    "ticketButton": "Get a Ticket",
+    "voucherButton": "Buy a Voucher"
+}

@@ -1,13 +1,20 @@
 import React from 'react';
+import LanguageToggle from '../../LanguageToggle';
 import { Toggle } from './css';
+import { useTranslation } from 'react-i18next';
 
-const toggle = (props) => {
+function CustomToggle (props) {
+    const { i18n } = useTranslation();
+    
+    const setLanguage = (id) => {
+        i18n.changeLanguage(id);
+    }
+
     return (
-        // <DrawerToggle onClick={props.clicked}>
         <Toggle>
-            <div></div>
+            <LanguageToggle language={i18n.language} setlanguage={setLanguage}/>
         </Toggle>
     );
 }
 
-export default toggle;
+export default CustomToggle;

@@ -1,13 +1,14 @@
 import React from 'react'
 import MainPage from '../../Components/MainPage/MainPage';
 import Toolbar from '../../Components/Navigation/Toolbar/Toolbar';
+import Footer from '../../Components/Navigation/Footer/Footer';
 
-function Layout(props) {
-    
+function Layout({restaurant}) { 
     return (
         <>
-            <Toolbar />
-            <MainPage restaurant={props.restaurant}/>
+            <Toolbar restaurant={restaurant}/>
+            <MainPage restaurant={restaurant}/>
+            <Footer />
         </>
         )
 };

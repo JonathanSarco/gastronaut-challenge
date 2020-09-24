@@ -1,14 +1,18 @@
 import React from 'react'
+import Events from '../Events/Events';
 import Image from '../Image/Image';
+import ButtonContainer from '../ButtonContainer/ButtonContainer';
 import { 
     MainContainer
 } from './css';
 
 function MainPage(props) {
-    console.log(props.restaurant);
+    
     return (
         <MainContainer>
             <Image image={props.restaurant.image} name={props.restaurant.name}/>
+            <Events restaurant={props.restaurant}/>
+            <ButtonContainer />
         </MainContainer>
         )
 };

@@ -6,23 +6,21 @@ import Spinner from '../../Components/UI/Spinner/Spinner';
 
 
 function Builder() {
-    const [errorFetch, setErrorFetch] = useState(null);
     const [restaurant, setRestaurant] = useState(null);
 
     const [restaurantTheme, setRestaurantTheme] = useState({
         primaryColor: '#d0d0d0', // default Value on load replace this with colorPalette
-        contrastText: '#000000' // default Value
+        contrastText: '#000000' // default Value schillingroofbar neo-heidelberg
     });
 
     useEffect( () => {
-        ReservationService.get('/schillingroofbar')
+        ReservationService.get('/neo-heidelberg')
             .then( response => {
-                console.log(response.data);
                 setRestaurantTheme(response.data.colorPalette)
                 setRestaurant(response.data);
             })
             .catch( error => {
-                setErrorFetch(error);
+                console.log(error)
             })
     }, []);
     
@@ -38,7 +36,7 @@ function Builder() {
     return (
         <ThemeProvider theme={theme}>
             { !restaurant ? 
-                <Spinner /> : 
+                <Spinner/> : 
                 <Layout restaurant={restaurant}/>
             }
         </ThemeProvider>
