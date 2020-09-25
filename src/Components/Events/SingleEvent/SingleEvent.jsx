@@ -26,7 +26,7 @@ function SingleEvent({ index, hour, restaurantId }) {
         ? <Label>...</Label>
         : <>
             <Label>{formatHours(days, index, hour, restaurantId).formatedHour}</Label>
-            <Label className='event_hour'>{hour ? hour : t('closed')}</Label>
+            <Label className='event-hour'>{hour ? hour : t('closed')}</Label>
             <SingleButtonContainer>
                 <Button 
                   variant={'outlined' }

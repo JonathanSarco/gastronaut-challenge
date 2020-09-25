@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Toggle = styled.div`
+export const ToggleContainer = styled.div`
     width: 40px;
     height: 100%;
     flex-flow: row;
@@ -9,5 +9,4 @@ export const Toggle = styled.div`
     padding: 10px 0;
     box-sizing: border-box;
     cursor: pointer;
-
 `;

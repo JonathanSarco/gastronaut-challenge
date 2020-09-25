@@ -11,6 +11,12 @@ export const EventContainer = styled.div`
             display: none;
         }
     }
+
+    @media(max-width: 350px) {
+        label {
+            display: none;
+        }
+    }
 `;
 
 export const Label = styled.label`

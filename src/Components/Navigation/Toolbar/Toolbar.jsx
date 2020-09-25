@@ -5,10 +5,10 @@ import {
     CustomToolbar 
 } from './css';
 
-function Toolbar(props) {
+function Toolbar({restaurant}) {
     return (
     <CustomToolbar >
-        <RLogo link={props.restaurant.link} logo={props.restaurant.logo}/>
+        <RLogo link={restaurant.link} logo={restaurant.logo}/>
         <Toggle />
     </CustomToolbar>
     );

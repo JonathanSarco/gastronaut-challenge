@@ -3,10 +3,10 @@ import {
     ImageContainer
 } from './css';
 
-function Image(props) {
+function Image({ image, name, loadFinished}) {
     return (
         <ImageContainer>
-            <img src={props.image} alt={props.name}/>
+            <img src={image} alt={name}/>
         </ImageContainer>
         )
 };

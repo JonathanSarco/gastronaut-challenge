@@ -6,7 +6,7 @@ import {
     MainContainer
 } from './css';
 
-function MainPage({ restaurant, restaurantId}) {
+function MainPage({ restaurant, restaurantId, loadFinished}) {
     
     return (
         <MainContainer>

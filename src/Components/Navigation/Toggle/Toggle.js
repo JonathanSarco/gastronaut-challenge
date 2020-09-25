@@ -1,9 +1,9 @@
 import React from 'react';
 import LanguageToggle from '../../LanguageToggle';
-import { Toggle } from './css';
+import { ToggleContainer } from './css';
 import { useTranslation } from 'react-i18next';
 
-function CustomToggle (props) {
+function Toggle() {
     const { i18n } = useTranslation();
     
     const setLanguage = (id) => {
@@ -11,10 +11,10 @@ function CustomToggle (props) {
     }
 
     return (
-        <Toggle>
-            <LanguageToggle language={i18n.language} setlanguage={setLanguage}/>
-        </Toggle>
+        <ToggleContainer>
+            <LanguageToggle language={i18n.language.split(0,1)[0]} setlanguage={setLanguage} />
+        </ToggleContainer>
     );
 }
 
-export default CustomToggle;
+export default Toggle;

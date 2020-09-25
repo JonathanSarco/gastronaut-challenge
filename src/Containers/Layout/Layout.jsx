@@ -8,13 +8,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-
 const useStyles = makeStyles({
     root: {
-      width: '80vw'
+      minWidth: 275,
     },
     bullet: {
       display: 'inline-block',
+      margin: '0 2px',
     },
     title: {
       fontSize: 14,
@@ -24,18 +24,15 @@ const useStyles = makeStyles({
     },
   });
 
-function Layout({ restaurant, restaurantId }) { 
+function Layout({ restaurant, restaurantId, loadFinished }) { 
     const classes = useStyles();
-
 
     return (
         <Composition areas={mobileTemplate} gap={10} justifyContent='center'>
             {
                 ({ ToolbarLayout, MainLayout, FooterLayout }) => (
                     <>
-                        <ToolbarLayout>
-                            
-                        </ToolbarLayout>
+                        <ToolbarLayout />
                         <MainLayout>
                             <Card className={classes.root} variant="outlined">
                                 <CardContent>

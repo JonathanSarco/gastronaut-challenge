@@ -12,7 +12,6 @@ import { formatHours } from '../../Hooks/formatHours';
 
 function TicketEvent({ index, restaurantId, event }) {
   const { t } = useTranslation();
-  console.log(event);
 
   const date = event.date;
 

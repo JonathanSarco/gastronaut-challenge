@@ -11,6 +11,8 @@ function Builder() {
     let { restaurantId } = useParams();
     const [restaurant, setRestaurant] = useState(null);
     const [errorRestaurant, setErrorRestaurant] = useState(false);
+    const [loadImage, setLoadImage] = useState(true);
+
 
     const [restaurantTheme, setRestaurantTheme] = useState({
         primaryColor: '#d0d0d0', 
