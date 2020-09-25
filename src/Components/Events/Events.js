@@ -1,5 +1,6 @@
 import React from 'react';
 import SingleEvent from './SingleEvent/SingleEvent';
+import TicketEvent from './TicketEvent/TicketEvent';
 import {
     MainContainer
 } from './css';
@@ -7,6 +8,7 @@ import {
 function Events({ restaurant, restaurantId }) {
 
     let regularHours = <></>;
+    
     if (restaurant.regularHours) {
         let hours = restaurant.regularHours;
         
@@ -24,6 +26,10 @@ function Events({ restaurant, restaurantId }) {
             // Then add ... to show
             regularHours = regularHours.slice(0, 6);
             regularHours.push( <SingleEvent key={7} index={null} />)
+        }
+
+        if (restaurant.events.length > 0) {
+            regularHours.push( <TicketEvent key={8} index={7} restaurantId={restaurantId} event={restaurant.events[0]} />)
         }
     }
 

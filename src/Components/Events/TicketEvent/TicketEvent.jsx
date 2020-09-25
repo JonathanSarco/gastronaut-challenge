@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
-import { RESERVATION_URL } from '../../../assets/Constants/constants.json';
+import { TICKET_URL } from '../../../assets/Constants/constants.json';
 import {
   EventContainer,
   Label,
@@ -10,13 +10,17 @@ import {
 import { formatHours } from '../../Hooks/formatHours';
 
 
-function SingleEvent({ index, hour, restaurantId }) {
+function TicketEvent({ index, restaurantId, event }) {
   const { t } = useTranslation();
+  console.log(event);
+
+  const date = event.date;
 
   const days = t('date', { returnObjects: true });
 
+
   const onSelectTableHandler = (hour) => {
-    const url = `${RESERVATION_URL}/${restaurantId}?date=${hour}`;
+    const url = `${TICKET_URL}/${restaurantId}/${event.id}`;
     window.open(url, "_blank");
   }
 
@@ -25,14 +29,16 @@ function SingleEvent({ index, hour, restaurantId }) {
       { index === null 
         ? <Label>...</Label>
         : <>
-            <Label>{formatHours(days, index, hour, restaurantId).formatedHour}</Label>
-            <Label>{hour ? hour : t('closed')}</Label>
+            <Label>{formatHours(days, index, date, restaurantId).formatedHour}</Label>
+            
+            <Label>{event.title}</Label>
+            
             <SingleButtonContainer>
                 <Button 
-                  variant={'outlined' }
+                  variant='contained'
                   color='primary' 
-                  disabled={!hour}
-                  onClick={() => onSelectTableHandler(formatHours(days, index, hour, restaurantId).queryHour)}
+                  disabled={ event.status === 'CLOSED' }
+                  onClick={() => onSelectTableHandler(formatHours(days, index, date, restaurantId).queryHour)}
                   >{t('reservationButtonSmall')}</Button>
             </SingleButtonContainer>
           </>
@@ -41,4 +47,4 @@ function SingleEvent({ index, hour, restaurantId }) {
   )
 }
 
-export default SingleEvent;
+export default TicketEvent;
