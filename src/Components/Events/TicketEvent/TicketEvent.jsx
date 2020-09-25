@@ -28,12 +28,12 @@ function TicketEvent({ index, restaurantId, event }) {
         ? <Label>...</Label>
         : <>
           <Label>{formatHours(days, index, date, restaurantId).formatedHour}</Label>
-          <Label className='event-hour'>{event.title}</Label>
+          <Label className='event-hour'>{event.available ? event.title : t('closed')}</Label>
           <SingleButtonContainer>
             <Button
               variant='contained'
               color='primary'
-              disabled={event.status === 'CLOSED'}
+              disabled={!event.available}
               onClick={() => onSelectTableHandler()}
             >{t('reservationButtonSmall')}</Button>
           </SingleButtonContainer>

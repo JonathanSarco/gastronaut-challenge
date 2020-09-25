@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ImageContainer = styled.div`
+    min-width: 500px;    
     height: 60vw;
     max-height: 400px;
 
@@ -9,5 +10,9 @@ export const ImageContainer = styled.div`
         border-radius: 5px;
         margin:auto;
         display:block;
+    }
+
+    @media(max-width: 800px) {
+        min-width: auto
     }
 `; 
