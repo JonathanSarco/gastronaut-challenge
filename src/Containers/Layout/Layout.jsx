@@ -9,46 +9,46 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles({
-    root: {
-      minWidth: 275,
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-    },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-  });
+  root: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
-function Layout({ restaurant, restaurantId, loadFinished }) { 
-    const classes = useStyles();
+function Layout({ restaurant, restaurantId, loadFinished }) {
+  const classes = useStyles();
 
-    return (
-        <Composition areas={mobileTemplate} gap={10} justifyContent='center'>
-            {
-                ({ ToolbarLayout, MainLayout, FooterLayout }) => (
-                    <>
-                        <ToolbarLayout />
-                        <MainLayout>
-                            <Card className={classes.root} variant="outlined">
-                                <CardContent>
-                                    <Toolbar restaurant={restaurant}/>
-                                    <MainPage restaurant={restaurant} restaurantId={restaurantId}/>
-                                </CardContent>
-                            </Card>
-                        </MainLayout>
-                        <FooterLayout>
-                            <Footer />
-                        </FooterLayout>
-                    </>    
-                )
-            }
-        </Composition>
+  return (
+    <Composition areas={mobileTemplate} gap={10} justifyContent='center'>
+      {
+        ({ ToolbarLayout, MainLayout, FooterLayout }) => (
+          <>
+            <ToolbarLayout />
+            <MainLayout>
+              <Card className={classes.root} variant="outlined">
+                <CardContent>
+                  <Toolbar restaurant={restaurant} />
+                  <MainPage restaurant={restaurant} restaurantId={restaurantId} loadFinished={loadFinished}/>
+                </CardContent>
+              </Card>
+            </MainLayout>
+            <FooterLayout>
+              <Footer />
+            </FooterLayout>
+          </>
         )
+      }
+    </Composition>
+  )
 };
 
 export default Layout;

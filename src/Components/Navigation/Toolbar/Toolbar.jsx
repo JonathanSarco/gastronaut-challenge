@@ -1,16 +1,16 @@
 import React from 'react';
 import Toggle from '../Toggle/Toggle';
 import RLogo from '../RLogo/RLogo';
-import { 
-    CustomToolbar 
+import {
+    CustomToolbar
 } from './css';
 
-function Toolbar({restaurant}) {
+function Toolbar({ restaurant }) {
     return (
-    <CustomToolbar >
-        <RLogo link={restaurant.link} logo={restaurant.logo}/>
-        <Toggle />
-    </CustomToolbar>
+        <CustomToolbar >
+            <RLogo link={restaurant.link} logo={restaurant.logo} name={restaurant.name}/>
+            <Toggle />
+        </CustomToolbar>
     );
 }
 

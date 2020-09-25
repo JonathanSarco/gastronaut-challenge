@@ -9,30 +9,27 @@ import CustomAlert from '../../Components/UI/Alert/Alert';
 
 function Builder() {
     let { restaurantId } = useParams();
+
     const [restaurant, setRestaurant] = useState(null);
     const [errorRestaurant, setErrorRestaurant] = useState(false);
-    const [loadImage, setLoadImage] = useState(true);
-
-
+    const [imageLoaded, setImageLoaded] = useState(false);
     const [restaurantTheme, setRestaurantTheme] = useState({
-        primaryColor: '#d0d0d0', 
+        primaryColor: '#d0d0d0',
         contrastText: '#000000'
     });
 
-    //schillingroofbar neo-heidelberg
-
-    useEffect( () => {
+    useEffect(() => {
         ReservationService.get(restaurantId)
-            .then( response => {
+            .then(response => {
                 setRestaurantTheme(response.data.colorPalette)
                 setRestaurant(response.data);
             })
-            .catch( error => {
+            .catch(error => {
                 console.log(error)
                 setErrorRestaurant(true)
             })
     }, [restaurantId]);
-    
+
     const theme = createMuiTheme({
         palette: {
             primary: {
@@ -42,16 +39,31 @@ function Builder() {
         }
     });
 
-    let showObject = <Layout restaurant={restaurant} restaurantId={restaurantId}/>;
+    const imageLoadedHandler = () => {
+        setImageLoaded(true);
+    }
+
+    // Check if the image is loading, that's why Spinners is being showned
+    let showObject = (
+        <>
+            <div style={{ display: !imageLoaded ? 'block' : 'none' }}>
+                <Spinner />
+            </div>
+            <div style={{ display: !imageLoaded ? 'none' : 'block' }}>
+                <Layout restaurant={restaurant} restaurantId={restaurantId} loadFinished={imageLoadedHandler} />
+            </div>
+
+        </>
+    );
 
     if (errorRestaurant) {
-        showObject = (<CustomAlert/>)
+        showObject = (<CustomAlert />)
     }
 
     return (
         <ThemeProvider theme={theme}>
-            { !restaurant && !errorRestaurant ? 
-                <Spinner/> : 
+            { !restaurant && !errorRestaurant ?
+                <Spinner /> :
                 showObject
             }
         </ThemeProvider>
