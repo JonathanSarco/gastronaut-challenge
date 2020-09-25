@@ -5,15 +5,21 @@ export const EventContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     padding: 5px 0;
+
+    @media(max-width: 500px) {
+        .event-hour {
+            display: none;
+        }
+    }
 `;
 
 export const Label = styled.label`
-    padding: 10px;
     font-family: 'Roboto';
     flex: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    opacity: 0.7;
 `;
 
 export const SingleButtonContainer = styled.div`

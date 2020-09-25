@@ -31,7 +31,7 @@ function TicketEvent({ index, restaurantId, event }) {
         : <>
             <Label>{formatHours(days, index, date, restaurantId).formatedHour}</Label>
             
-            <Label>{event.title}</Label>
+            <Label className='event-hour'>{event.title}</Label>
             
             <SingleButtonContainer>
                 <Button 

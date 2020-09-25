@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const CustomToolbar = styled.header`
     height: 50px;
     width: 100%;
-    position: fixed;
     top: 10px;
     left: 0;
     display: flex;
@@ -15,12 +14,5 @@ export const CustomToolbar = styled.header`
 
     nav {
         height: 100%;
-    }
-`;
-
-
-export const NavContainer = styled.nav`
-    @media (max-width: 499px) {
-        display: none;
     }
 `;
