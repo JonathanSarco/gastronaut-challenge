@@ -1,5 +1,5 @@
 import React from 'react';
-import LanguageToggle from '../../LanguageToggle';
+import LanguageToggle from '../../UI/LanguageToggle/index';
 import { ToggleContainer } from './css';
 import { useTranslation } from 'react-i18next';
 
