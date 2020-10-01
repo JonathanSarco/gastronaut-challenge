@@ -11,6 +11,9 @@ You can find the instructions [here](https://github.com/gastronaut-gmbh/fullStac
 - Then, run ```npm start```
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+- In [http://localhost:3000](http://localhost:3000) without adding any Id from a Restaurant or the ID was not found, the app will send a Alert (from MaterialUI) showing a message.
+- To access a Restaurant, the :idRestaurant needs to be added to the url (For example, [http://localhost:3000](http://localhost:3000)/neo-heidelberg or [http://localhost:3000](http://localhost:3000)/schillingroofbar)
+
 
 ## Project Structure
 
